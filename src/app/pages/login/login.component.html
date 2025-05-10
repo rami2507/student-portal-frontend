@@ -1,0 +1,56 @@
+<div class="container py-5">
+  <h2 class="text-center mb-4 fw-bold">Login to Your Account</h2>
+
+  <!-- Error Alert -->
+  <div *ngIf="apiError" class="alert alert-danger text-center" role="alert">
+    {{ apiError }}
+  </div>
+
+  <form
+    (ngSubmit)="onSubmit()"
+    [formGroup]="loginForm"
+    class="mx-auto"
+    style="max-width: 500px"
+  >
+    <div class="mb-3">
+      <label for="matricule_id" class="form-label">Matricule ID</label>
+      <input
+        type="text"
+        id="matricule_id"
+        class="form-control"
+        formControlName="matricule_id"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        formControlName="password"
+        required
+      />
+    </div>
+
+    <button
+      class="btn btn-primary w-100"
+      type="submit"
+      [disabled]="loginForm.invalid"
+    >
+      Log In
+    </button>
+
+    <!-- Sign Up link below -->
+    <div class="text-center mt-3">
+      <span>Don't have an account?</span>
+      <a
+        routerLink="/signup"
+        class="btn btn-outline-secondary ms-2 px-4 py-1 rounded-pill"
+      >
+        Sign Up
+      </a>
+    </div>
+  </form>
+</div>

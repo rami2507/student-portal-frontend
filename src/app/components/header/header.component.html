@@ -1,0 +1,67 @@
+<nav
+  class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top"
+>
+  <div class="container">
+    <a class="navbar-brand text-primary fw-bold fs-4" routerLink="/">
+      🎓 StudentPortal
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav align-items-center gap-3">
+        <!-- Always visible links -->
+        <li class="nav-item">
+          <a class="nav-link fw-medium text-dark" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-medium text-dark" routerLink="/about">About</a>
+        </li>
+
+        <!-- Guest -->
+        <ng-container *ngIf="!userService.isLoggedIn()">
+          <li class="nav-item">
+            <a class="nav-link fw-medium text-dark" routerLink="/login"
+              >Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="btn btn-primary px-4 py-1 rounded-pill fw-semibold"
+              routerLink="/signup"
+            >
+              Sign Up
+            </a>
+          </li>
+        </ng-container>
+
+        <!-- Logged-in user -->
+        <ng-container *ngIf="userService.isLoggedIn()">
+          <li class="nav-item">
+            <span class="nav-link text-success fw-semibold">
+              Welcome, {{ username }}
+            </span>
+          </li>
+          <li class="nav-item">
+            <button
+              class="btn btn-outline-danger px-3 py-1 rounded-pill"
+              (click)="logout()"
+            >
+              Logout
+            </button>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>
