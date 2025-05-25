@@ -1,0 +1,51 @@
+<div *ngIf="!loading && demands.length" class="table-responsive">
+  <table class="table table-bordered text-center align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Group</th>
+        <th>Section</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of demands; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ d.student?.name || "—" }}</td>
+        <td>{{ d.student?.group || "—" }}</td>
+        <td>{{ d.student?.section || "—" }}</td>
+        <td>
+          <span
+            [ngClass]="{
+              'text-warning': d.status === 'pending',
+              'text-success': d.status === 'approved',
+              'text-danger': d.status === 'rejected'
+            }"
+          >
+            {{ d.status | titlecase }}
+          </span>
+        </td>
+        <td>{{ d.date | date : "medium" }}</td>
+        <td>
+          <button
+            class="btn btn-success btn-sm me-2"
+            (click)="acceptDemand(d._id)"
+            [disabled]="d.status !== 'pending'"
+          >
+            Accept
+          </button>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="rejectDemand(d._id)"
+            [disabled]="d.status !== 'pending'"
+          >
+            Reject
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

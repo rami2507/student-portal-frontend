@@ -1,0 +1,24 @@
+<div class="container py-5">
+    <h2 class="text-center mb-4 fw-bold">Your Group & Section</h2>
+  
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+      <div class="card-body">
+        <h5 class="card-title text-primary fw-semibold">👤 Student Info</h5>
+        <p class="mb-1"><strong>Name:</strong> {{ user.name }}</p>
+        <p class="mb-1"><strong>Matricule ID:</strong> {{ user.matricule_id }}</p>
+  
+        <hr />
+  
+        <h5 class="card-title text-success fw-semibold">🗂️ Assignment</h5>
+        <p class="mb-1"><strong>Group:</strong> {{ group }}</p>
+        <p class="mb-1"><strong>Section:</strong> {{ section }}</p>
+      </div>
+    </div>
+      <!-- Back button -->
+    <div class="text-center mt-4">
+        <a routerLink="/student" class="btn btn-outline-secondary px-4">
+        ← Back to Dashboard
+        </a>
+    </div>
+  </div>
+  

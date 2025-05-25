@@ -1,0 +1,46 @@
+<div class="container py-5">
+  <h2 class="text-center mb-4 fw-bold">Your Academic Marks</h2>
+
+  <div class="mb-4 text-center">
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <p><strong>Matricule ID:</strong> {{ user.matricule_id }}</p>
+  </div>
+
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary"></div>
+    <p class="mt-2">Loading your marks...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && marksGrouped.length" class="table-responsive">
+    <table class="table table-bordered text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Module</th>
+          <th>TD Mark</th>
+          <th>Exam Mark</th>
+          <th>Rattrapage Mark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of marksGrouped; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ m.name }}</td>
+          <td>{{ m.td || "N/A" }}</td>
+          <td>{{ m.exam || "N/A" }}</td>
+          <td>{{ m.ratrappage || "N/A" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center mt-4">
+    <a routerLink="/student" class="btn btn-outline-secondary px-4"
+      >← Back to Dashboard</a
+    >
+  </div>
+</div>

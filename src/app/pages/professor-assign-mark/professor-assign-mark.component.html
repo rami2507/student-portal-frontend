@@ -1,0 +1,59 @@
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-4">Assign Mark to Student</h2>
+
+  <div *ngIf="successMessage" class="alert alert-success text-center">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+
+  <form
+    [formGroup]="assignForm"
+    (ngSubmit)="onSubmit()"
+    class="mx-auto"
+    style="max-width: 500px"
+  >
+    <div class="mb-3">
+      <label class="form-label">Select Student</label>
+      <select formControlName="studentId" class="form-select">
+        <option value="" disabled>Select a student</option>
+        <option *ngFor="let s of students" [value]="s._id">{{ s.name }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Mark</label>
+      <input
+        type="number"
+        formControlName="mark"
+        class="form-control"
+        min="0"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Mark Type</label>
+      <select formControlName="markType" class="form-select">
+        <option value="" disabled>Select mark type</option>
+        <option value="td">TD</option>
+        <option value="exam">Exam</option>
+        <option value="ratrappage">Rattrapage</option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary w-100"
+      [disabled]="assignForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+
+  <div class="text-center mt-4">
+    <a routerLink="/professor" class="btn btn-outline-secondary"
+      >← Back to Dashboard</a
+    >
+  </div>
+</div>

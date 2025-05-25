@@ -1,1 +1,84 @@
-<p>student-dashboard works!</p>
+<div class="container py-5">
+  <h2 class="text-center mb-5 fw-bold">Student Dashboard</h2>
+
+  <div class="row g-4">
+    <!-- View Group & Section -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow-sm text-center p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold mb-2">📌 Group & Section</h5>
+          <p class="card-text text-muted">
+            Check your assigned group and section info.
+          </p>
+          <a
+            routerLink="/student/group"
+            class="btn btn-outline-primary btn-sm mt-2"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Check Grades -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow-sm text-center p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold mb-2">📊 Grades</h5>
+          <p class="card-text text-muted">
+            See your academic performance by semester.
+          </p>
+          <a
+            routerLink="/student/grades"
+            class="btn btn-outline-primary btn-sm mt-2"
+            >View</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Program Hours -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow-sm text-center p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold mb-2">🕒 Program Hours</h5>
+          <p class="card-text text-muted">
+            View your academic program schedule and class hours.
+          </p>
+          <a
+            routerLink="/student/program"
+            class="btn btn-outline-primary btn-sm mt-2"
+          >
+            View Program
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Supervisor -->
+    <!-- Request Certificate -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 shadow-sm text-center p-3">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold mb-2">📄 Request Certificate</h5>
+          <p class="card-text text-muted">
+            Submit a request for your study certificate.
+          </p>
+          <div class="d-flex justify-content-center gap-2">
+            <a
+              routerLink="/student/request-certificate"
+              class="btn btn-outline-primary btn-sm mt-2"
+            >
+              Request
+            </a>
+            <a
+              routerLink="/student/my-demands"
+              class="btn btn-outline-primary btn-sm mt-2"
+            >
+              View Requests
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="table-responsive mt-4">
+  <table
+    class="table table-striped table-bordered table-hover align-middle text-center"
+  >
+    <thead class="table-light">
+      <tr>
+        <th>#</th>
+        <th>Status</th>
+        <th>Request Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of demands; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <span
+            [ngClass]="{
+              'badge bg-warning text-dark': d.status === 'pending',
+              'badge bg-success': d.status === 'approved',
+              'badge bg-danger': d.status === 'rejected'
+            }"
+            class="px-2 py-1"
+          >
+            {{ d.status | titlecase }}
+          </span>
+        </td>
+        <td>{{ d.date | date : "medium" }}</td>
+        <td>
+          <button
+            *ngIf="d.status === 'approved' && d.image"
+            class="btn btn-sm btn-outline-primary"
+            (click)="viewCertificate(d.image)"
+          >
+            View Certificate
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

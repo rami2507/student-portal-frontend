@@ -1,0 +1,26 @@
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-4">Your Program Schedule</h2>
+
+  <!-- Success -->
+  <div *ngIf="imageUrl" class="card shadow-sm mx-auto" style="max-width: 800px">
+    <img
+      [src]="imageUrl"
+      alt="Program Schedule"
+      class="card-img-top img-fluid"
+    />
+    <div class="card-body text-center">
+      <p class="text-muted">This is your academic schedule for your group.</p>
+    </div>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="alert alert-warning text-center mt-4">
+    {{ errorMessage }}
+  </div>
+
+  <div class="text-center mt-4">
+    <a routerLink="/student" class="btn btn-outline-secondary px-4">
+      ← Back to Dashboard
+    </a>
+  </div>
+</div>
