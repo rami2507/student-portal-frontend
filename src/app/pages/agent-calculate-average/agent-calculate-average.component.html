@@ -1,0 +1,38 @@
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-4">Calculate Student Average</h2>
+
+  <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="calculateAverage()"
+    class="mx-auto"
+    style="max-width: 500px"
+  >
+    <div class="mb-3">
+      <label class="form-label">Select Student</label>
+      <select class="form-select" formControlName="studentId">
+        <option value="" disabled>Select a student</option>
+        <option *ngFor="let s of students" [value]="s._id">{{ s.name }}</option>
+      </select>
+    </div>
+
+    <button
+      class="btn btn-success w-100"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Calculate Average
+    </button>
+  </form>
+
+  <div *ngIf="average !== null" class="alert alert-info text-center mt-4">
+    📊 Average Mark: <strong>{{ average }}</strong>
+  </div>
+
+  <div class="text-center mt-4">
+    <a routerLink="/agent" class="btn btn-outline-secondary px-4"
+      >← Back to Dashboard</a
+    >
+  </div>
+</div>

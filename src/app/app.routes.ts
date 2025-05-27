@@ -13,6 +13,8 @@ import { StudentRequestComponent } from './pages/student-request/student-request
 import { StudentDemandHistoryComponent } from './pages/student-demand-history/student-demand-history.component';
 import { ReviewDemandsComponent } from './pages/review-demands/review-demands.component';
 import { ProfessorAssignMarkComponent } from './pages/professor-assign-mark/professor-assign-mark.component';
+import { AgentCalculateAverageComponent } from './pages/agent-calculate-average/agent-calculate-average.component';
+import { StudentAverageComponent } from './pages/student-average/student-average.component';
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -29,4 +31,9 @@ export const routes: Routes = [
   { path: 'student/my-demands', component: StudentDemandHistoryComponent },
   { path: 'agent/review-demands', component: ReviewDemandsComponent },
   { path: 'professor/assign-mark', component: ProfessorAssignMarkComponent },
+  {
+    path: 'agent/calculate-average',
+    component: AgentCalculateAverageComponent,
+  },
+  { path: 'student/average', component: StudentAverageComponent },
 ];
